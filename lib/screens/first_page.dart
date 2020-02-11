@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_type_quiz/components/ChoiceButton.dart';
 import 'package:food_type_quiz/constants.dart';
+import 'package:food_type_quiz/screens/question_bank.dart';
 import 'package:oktoast/oktoast.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class FirstPage extends StatefulWidget {
   @override
@@ -10,27 +10,13 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
-  int _counter = 0;
+  QuestionBank questionBank;
 
   @override
   void initState() {
     super.initState();
-    _loadCounter();
-  }
-
-  _loadCounter() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _counter = (prefs.getInt('counter') ?? 0);
-    });
-  }
-
-  _incrementCounter() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _counter = (prefs.getInt('counter') ?? 0) + 1;
-      prefs.setInt('counter', _counter);
-    });
+    questionBank = QuestionBank();
+    questionBank.loadCounter();
   }
 
   @override
@@ -46,7 +32,7 @@ class _FirstPageState extends State<FirstPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  'High Score: $_counter',
+                  'High Score: ${QuestionBank().highScore}',
                   style: titleStyle,
                 ),
                 Container(
@@ -71,7 +57,10 @@ class _FirstPageState extends State<FirstPage> {
                     margin: EdgeInsets.all(10),
                     width: double.infinity,
                     child: ChoiceButton(
-                        btnText: 'search', tap: _incrementCounter)),
+                        btnText: 'search',
+                        tap: () {
+                          Navigator.of(context).pushNamed(searchRoute);
+                        })),
               ],
             ),
           ),

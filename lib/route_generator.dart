@@ -12,13 +12,28 @@ class RouteGenerator {
       case homeRoute:
         return MaterialPageRoute(builder: (_) => FirstPage());
       case startQuizRoute:
-        return MaterialPageRoute(
-          builder: (_) => QuizPage(),
-        );
+        return MaterialPageRoute(builder: (_) => QuizPage());
       case searchRoute:
         return MaterialPageRoute(
           builder: (_) => SearchPage(),
         );
+      default:
+        return _errorRoute();
     }
+  }
+
+  static Route<dynamic> _errorRoute() {
+    return MaterialPageRoute(
+      builder: (_) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('Error'),
+          ),
+          body: Center(
+            child: Text('Error'),
+          ),
+        );
+      },
+    );
   }
 }

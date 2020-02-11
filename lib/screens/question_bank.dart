@@ -1,66 +1,79 @@
 import 'package:food_type_quiz/screens/question.dart';
 import 'package:food_type_quiz/screens/toasts.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class QuestionBank {
+  static final QuestionBank _questionBank = QuestionBank._internal();
+
+  factory QuestionBank() {
+    return _questionBank;
+  }
+
+  QuestionBank._internal();
+
   int _questionNumber = 0;
   int _score = 0;
-  int _highScore = 0;
+  int highScore;
 
   List<Question> _questionList = [
-    Question('Coconut', 'images/coconut.png', 1),
-    Question('Tomato', 'images/tomato.png', 2)
+    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
+    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
+    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
+    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
+    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
+    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
+    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
+    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
+    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
+    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
+    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
+    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
+    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
+    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
+    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
+    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
   ];
 
   String getQuestionTitle() {
     return _questionList[_questionNumber].title;
   }
 
-  String getQuestionTitleIndex(int index) {
-    return _questionList[index].title;
+  incrementCounter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    highScore = (prefs.getInt('counter') ?? 0) + 1;
+    prefs.setInt('counter', highScore);
   }
 
-  String getImageIndex(int index) {
-    return _questionList[index].imagePath;
-  }
-
-  int getHighScore() {
-    if (_score > _highScore) {
-      _highScore = _score;
-    }
-    return _highScore;
+  loadCounter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    highScore = (prefs.getInt('counter') ?? 0);
   }
 
   String getQuestionImage() {
     return _questionList[_questionNumber].imagePath;
   }
 
-  void nextQuestion() {
-    if (_questionNumber < _questionList.length - 1) {
-      _questionNumber++;
-      showToastWidget(CorrectToast());
-    } else {
-      resetQuestions();
-    }
-  }
+  List<Question> getList() => _questionList;
 
-  int incrementScore() {
-    return _score++;
+  void bigCheck(int choice) {
+    if (_questionNumber < _questionList.length - 1) {
+      if (choice == _questionList[_questionNumber].answer) {
+        _score++;
+        if (_score > highScore) {
+          incrementCounter();
+        }
+        showToastWidget(CorrectToast());
+      } else {
+        showToastWidget(WrongToast());
+      }
+      _questionNumber++;
+    } else {
+      _questionNumber = 0;
+    }
   }
 
   int getScore() => _score;
 
-  void resetQuestions() {
-    _questionNumber = 0;
-  }
-
   int getLength() => _questionList.length;
-
-  bool validateQuestion(int choice) {
-    if (choice == _questionList[_questionNumber].answer) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 }

@@ -32,6 +32,8 @@ dependencies:
   bot_toast: ^2.2.1
   oktoast: ^2.3.1
   getflutter: ^1.0.5
+  sticky_headers: ^0.1.8+1
+
 
 
 
