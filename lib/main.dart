@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:food_type_quiz/route_generator.dart';
 import 'package:oktoast/oktoast.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override

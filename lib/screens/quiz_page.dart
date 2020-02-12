@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:food_type_quiz/components/ChoiceButton.dart';
 import 'package:food_type_quiz/constants.dart';
 
@@ -12,11 +13,6 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage>
     with SingleTickerProviderStateMixin {
   QuestionBank questionBank = QuestionBank();
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +127,7 @@ class TopRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          'High Score: ${questionBank.highScore}',
+          'High Score: ${QuestionBank().highScore}',
           style: TextStyle(fontSize: 25, color: Colors.white),
         ),
         SizedBox(
@@ -144,16 +140,23 @@ class TopRow extends StatelessWidget {
               style: TextStyle(fontSize: 25, color: Colors.white),
             ),
             SizedBox(
-              width: 220,
+              width: 214,
+            ),
+            Visibility(
+              child: Icon(
+                FontAwesome.heart,
+                size: 26,
+                color: Colors.red,
+              ),
+            ),
+            SizedBox(
+              width: 6,
             ),
             Icon(
-              Icons.audiotrack,
+              FontAwesome.heart,
               size: 26,
-            ),
-            Icon(
-              Icons.audiotrack,
-              size: 26,
-            ),
+              color: Colors.red,
+            )
           ],
         )
       ],
