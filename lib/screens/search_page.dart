@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:food_type_quiz/screens/question.dart';
@@ -29,7 +30,7 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
 //    Timer(
 //        Duration(milliseconds: 3000),
-//        () => _controller.animateTo(_controller.position.minScrollExtent,
+//        () => _controller.animateTo(_controller.position.maxScrollExtent,
 //            duration: Duration(milliseconds: 1600), curve: Curves.bounceInOut));
     return Scaffold(
       backgroundColor: Colors.grey[700],
@@ -50,7 +51,7 @@ class _SearchPageState extends State<SearchPage> {
 
   _searchBar() {
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding: const EdgeInsets.all(6.0),
       child: Container(
         decoration: BoxDecoration(
             color: Colors.grey[900], borderRadius: BorderRadius.circular(16.0)),
@@ -80,19 +81,51 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   _listItem(index) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
-      color: Colors.brown,
-      elevation: 4,
-      child: ListTile(
-        contentPadding: EdgeInsets.only(left: 12, top: 7, bottom: 7),
-        leading: Image.asset(_filteredQuestions[index].imagePath),
-        title: Text(
-          _filteredQuestions[index].title,
-          textAlign: TextAlign.center,
-          style: titleStyle,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        color: Colors.brown,
+        elevation: 4,
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: 40,
+              width: double.infinity,
+              child: Text(
+                _questions[index].type,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    letterSpacing: 1.8,
+                    fontSize: 28,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+              color: Colors.green[800],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: 70,
+                    child: Image.asset(_filteredQuestions[index].imagePath),
+                  ),
+                ),
+                SizedBox(
+                  width: 60,
+                ),
+                Text(
+                  _filteredQuestions[index].title,
+                  textAlign: TextAlign.center,
+                  style: titleStyle,
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

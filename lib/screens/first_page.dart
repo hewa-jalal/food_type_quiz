@@ -35,12 +35,19 @@ class _FirstPageState extends State<FirstPage> {
                   'High Score: ${QuestionBank().highScore}',
                   style: titleStyle,
                 ),
-                Container(
-                  child: Image.asset(
-                    'images/bird.jpg',
+                SizedBox(
+                  height: 76,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                  child: Image(
+                    image: AssetImage(
+                      'images/logoDesigne7crop.png',
+                    ),
                   ),
-                  margin:
-                      EdgeInsets.only(top: 20, bottom: 14, left: 10, right: 10),
+                ),
+                SizedBox(
+                  height: 30,
                 ),
                 Container(
                   height: 70,

@@ -48,7 +48,7 @@ class _QuizPageState extends State<QuizPage>
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.width * 0.2,
+                    height: 76,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 12.0, vertical: 5),
