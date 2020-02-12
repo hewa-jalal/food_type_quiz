@@ -127,7 +127,7 @@ class TopRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          'High Score: ${QuestionBank().highScore}',
+          'High Score: ${QuestionBank().getHighScore()}',
           style: TextStyle(fontSize: 25, color: Colors.white),
         ),
         SizedBox(

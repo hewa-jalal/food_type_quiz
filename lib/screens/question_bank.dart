@@ -14,7 +14,9 @@ class QuestionBank {
 
   int _questionNumber = 0;
   int _score = 0;
-  int highScore;
+  int _highScore;
+
+  int getHighScore() => _highScore;
 
   List<Question> _questionList = [
     Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
@@ -41,13 +43,13 @@ class QuestionBank {
 
   incrementCounter() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    highScore = (prefs.getInt('counter') ?? 0) + 1;
-    prefs.setInt('counter', highScore);
+    _highScore = (prefs.getInt('counter') ?? 0) + 1;
+    prefs.setInt('counter', _highScore);
   }
 
-  loadCounter() async {
+  Future<int> loadCounter() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    highScore = (prefs.getInt('counter') ?? 0);
+    return _highScore = (prefs.getInt('counter') ?? 0);
   }
 
   String getQuestionImage() {
@@ -60,7 +62,7 @@ class QuestionBank {
     if (_questionNumber < _questionList.length - 1) {
       if (choice == _questionList[_questionNumber].answer) {
         _score++;
-        if (_score > highScore) {
+        if (_score > _highScore) {
           incrementCounter();
         }
         showToastWidget(CorrectToast());
