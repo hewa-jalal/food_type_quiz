@@ -41,14 +41,7 @@ class _FirstPageState extends State<FirstPage> {
               SizedBox(
                 height: 76,
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                child: Image(
-                  image: AssetImage(
-                    'images/logoDesigne7crop.png',
-                  ),
-                ),
-              ),
+              buildPadding(),
               SizedBox(
                 height: 30,
               ),
@@ -73,6 +66,17 @@ class _FirstPageState extends State<FirstPage> {
                       })),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Padding buildPadding() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+      child: Image(
+        image: AssetImage(
+          'images/logoDesigne7crop.png',
         ),
       ),
     );

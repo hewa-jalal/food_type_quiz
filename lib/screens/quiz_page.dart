@@ -12,6 +12,22 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage>
     with SingleTickerProviderStateMixin {
+  List<Widget> livesIcon = [
+    Icon(
+      FontAwesome.heart,
+      size: 26,
+      color: Colors.red,
+    ),
+    SizedBox(
+      width: 10,
+    ),
+    Icon(
+      FontAwesome.heart,
+      size: 26,
+      color: Colors.red,
+    )
+  ];
+
   QuestionBank questionBank = QuestionBank();
 
   @override
@@ -24,7 +40,10 @@ class _QuizPageState extends State<QuizPage>
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.only(top: 14, right: 8, left: 6),
-              child: TopRow(questionBank: questionBank),
+              child: TopRow(
+                questionBank: questionBank,
+                activeIcons: livesIcon,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
@@ -45,63 +64,19 @@ class _QuizPageState extends State<QuizPage>
                   ),
                   SizedBox(
                     height: 76,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12.0, vertical: 5),
-                      child: ChoiceButton(
-                        btnText: 'Fruit',
-                        tap: () {
-                          setState(() {
-                            questionBank.bigCheck(1);
-                          });
-                        },
-                      ),
-                    ),
+                    child: buildPadding('Fruit', 1),
                   ),
                   SizedBox(
                     height: 76,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12.0, vertical: 5),
-                      child: ChoiceButton(
-                        btnText: 'Vegetable',
-                        tap: () {
-                          setState(() {
-                            questionBank.bigCheck(2);
-                          });
-                        },
-                      ),
-                    ),
+                    child: buildPadding('Vegetable', 2),
                   ),
                   SizedBox(
                     height: 76,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12.0, vertical: 5),
-                      child: ChoiceButton(
-                        btnText: 'Fungus',
-                        tap: () {
-                          setState(() {
-                            questionBank.bigCheck(3);
-                          });
-                        },
-                      ),
-                    ),
+                    child: buildPadding('Fungus', 3),
                   ),
                   SizedBox(
                     height: 76,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12.0, vertical: 5),
-                      child: ChoiceButton(
-                        btnText: 'Berry',
-                        tap: () {
-                          setState(() {
-                            questionBank.bigCheck(4);
-                          });
-                        },
-                      ),
-                    ),
+                    child: buildPadding('Berry', 4),
                   ),
                 ],
               ),
@@ -111,13 +86,28 @@ class _QuizPageState extends State<QuizPage>
       ),
     );
   }
+
+  Padding buildPadding(String btnText, int checkQuestion) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 5),
+      child: ChoiceButton(
+        btnText: btnText,
+        tap: () {
+          setState(() {
+            questionBank.bigCheck(checkQuestion);
+          });
+        },
+      ),
+    );
+  }
 }
 
 class TopRow extends StatelessWidget {
-  const TopRow({
-    Key key,
-    @required this.questionBank,
-  }) : super(key: key);
+  const TopRow(
+      {Key key, @required this.questionBank, @required this.activeIcons})
+      : super(key: key);
+
+  final List<Widget> activeIcons;
 
   final QuestionBank questionBank;
 
@@ -142,21 +132,9 @@ class TopRow extends StatelessWidget {
             SizedBox(
               width: 214,
             ),
-            Visibility(
-              child: Icon(
-                FontAwesome.heart,
-                size: 26,
-                color: Colors.red,
-              ),
+            Row(
+              children: activeIcons,
             ),
-            SizedBox(
-              width: 6,
-            ),
-            Icon(
-              FontAwesome.heart,
-              size: 26,
-              color: Colors.red,
-            )
           ],
         )
       ],
