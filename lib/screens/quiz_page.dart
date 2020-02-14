@@ -39,14 +39,14 @@ class _QuizPageState extends State<QuizPage>
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(top: 14, right: 8, left: 6),
+              padding: const EdgeInsets.only(top: 14, right: 10, left: 10),
               child: TopRow(
                 questionBank: questionBank,
                 activeIcons: livesIcon,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+              padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 40),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -56,7 +56,7 @@ class _QuizPageState extends State<QuizPage>
                         textAlign: TextAlign.center, style: titleStyle),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 30, bottom: 20),
+                    padding: const EdgeInsets.only(top: 16, bottom: 20),
                     child: Image.asset(
                       questionBank.getQuestionImage(),
                       height: 180,
@@ -121,7 +121,7 @@ class TopRow extends StatelessWidget {
           style: TextStyle(fontSize: 25, color: Colors.white),
         ),
         SizedBox(
-          height: 10,
+          height: 14,
         ),
         Row(
           children: <Widget>[

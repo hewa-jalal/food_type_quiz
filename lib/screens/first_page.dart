@@ -39,7 +39,7 @@ class _FirstPageState extends State<FirstPage> {
                 },
               ),
               SizedBox(
-                height: 76,
+                height: 36,
               ),
               buildPadding(),
               SizedBox(
@@ -76,7 +76,7 @@ class _FirstPageState extends State<FirstPage> {
       padding: const EdgeInsets.only(left: 8.0, right: 8.0),
       child: Image(
         image: AssetImage(
-          'images/logoDesigne7crop.png',
+          'images/logo.png',
         ),
       ),
     );
