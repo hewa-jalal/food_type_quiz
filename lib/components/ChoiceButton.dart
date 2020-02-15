@@ -6,6 +6,7 @@ class ChoiceButton extends StatelessWidget {
 
   final String btnText;
   final Function tap;
+
   @override
   Widget build(BuildContext context) {
     return FlatButton(

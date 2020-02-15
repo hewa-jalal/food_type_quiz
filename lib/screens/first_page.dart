@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_type_quiz/components/ChoiceButton.dart';
 import 'package:food_type_quiz/constants.dart';
-import 'package:food_type_quiz/screens/question_bank.dart';
+import 'package:food_type_quiz/models/question_bank.dart';
 
 import '../constants.dart';
-import 'question_bank.dart';
+import '../models/question_bank.dart';
 
 class FirstPage extends StatefulWidget {
   @override
@@ -31,7 +31,10 @@ class _FirstPageState extends State<FirstPage> {
                     }
                     return Text(
                       'High Score: ${syncedData.data.toString()}',
-                      style: titleStyle,
+                      style: TextStyle(
+                          fontSize: 38,
+                          color: Colors.white,
+                          fontFamily: 'Bitter'),
                     );
                   } else {
                     return Text('');
@@ -50,20 +53,21 @@ class _FirstPageState extends State<FirstPage> {
                 width: double.infinity,
                 margin: EdgeInsets.all(10),
                 child: ChoiceButton(
-                    btnText: 'start the quiz',
+                    btnText: 'Start The Quiz',
                     tap: () {
                       Navigator.of(context).pushNamed(startQuizRoute);
                     }),
               ),
               Container(
-                  height: 70,
-                  margin: EdgeInsets.all(10),
-                  width: double.infinity,
-                  child: ChoiceButton(
-                      btnText: 'search',
-                      tap: () {
-                        Navigator.of(context).pushNamed(searchRoute);
-                      })),
+                height: 70,
+                margin: EdgeInsets.all(10),
+                width: double.infinity,
+                child: ChoiceButton(
+                    btnText: 'Search',
+                    tap: () {
+                      Navigator.of(context).pushNamed(searchRoute);
+                    }),
+              ),
             ],
           ),
         ),
@@ -71,13 +75,10 @@ class _FirstPageState extends State<FirstPage> {
     );
   }
 
-  Padding buildPadding() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-      child: Image(
-        image: AssetImage(
-          'images/logo.png',
-        ),
+  Image buildPadding() {
+    return Image(
+      image: AssetImage(
+        'images/logo.png',
       ),
     );
   }

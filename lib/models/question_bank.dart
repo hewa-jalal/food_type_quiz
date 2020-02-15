@@ -1,5 +1,6 @@
-import 'package:food_type_quiz/screens/question.dart';
-import 'package:food_type_quiz/screens/toasts.dart';
+import 'package:food_type_quiz/components/lives_icon.dart';
+import 'package:food_type_quiz/components/toasts.dart';
+import 'package:food_type_quiz/models/question.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -67,6 +68,7 @@ class QuestionBank {
         }
         showToastWidget(CorrectToast());
       } else {
+        LivesIcon().removeIcon();
         showToastWidget(WrongToast());
       }
       _questionNumber++;
@@ -78,4 +80,10 @@ class QuestionBank {
   int getScore() => _score;
 
   int getLength() => _questionList.length;
+
+  void resetGame() {
+    _score = 0;
+    _questionNumber = 0;
+    LivesIcon().addIconBack();
+  }
 }

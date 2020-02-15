@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 
-TextStyle titleStyle = TextStyle(
+const TextStyle titleStyle = TextStyle(
   fontSize: 38,
   color: Colors.white,
   fontFamily: 'Qartella',
   fontWeight: FontWeight.bold,
 );
 
-TextStyle btnTextStyle = TextStyle(
+const TextStyle btnTextStyle = TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.bold,
+    letterSpacing: 3,
     fontSize: 34,
-    fontFamily: 'Qartella');
+    fontFamily: 'Roboto');
 
 const String homeRoute = '/';
 const String startQuizRoute = '/startQuiz';

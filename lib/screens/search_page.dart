@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:food_type_quiz/screens/question.dart';
-import 'package:food_type_quiz/screens/question_bank.dart';
+import 'package:food_type_quiz/models/question.dart';
+import 'package:food_type_quiz/models/question_bank.dart';
 
 import '../constants.dart';
 
