@@ -54,7 +54,7 @@ class QuestionBank {
         _score++;
         if (_score > _highScore) {
           incrementCounter();
-        }
+        } // please no NPE
         showToastWidget(CorrectToast());
       } else {
         LivesIcon().removeIcon();
