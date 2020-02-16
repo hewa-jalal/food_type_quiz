@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getflutter/components/button/gf_button.dart';
+import 'package:getflutter/getflutter.dart';
 
 import '../constants.dart';
 

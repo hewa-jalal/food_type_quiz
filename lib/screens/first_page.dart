@@ -78,7 +78,7 @@ class _FirstPageState extends State<FirstPage> {
   Image buildPadding() {
     return Image(
       image: AssetImage(
-        'images/logo.png',
+        'images/final_vs_logo_no_circle.png',
       ),
     );
   }

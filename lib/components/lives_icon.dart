@@ -32,4 +32,6 @@ class LivesIcon extends StatelessWidget {
       livesIcon.removeLast();
     }
   }
+
+  void clearList() => livesIcon.clear();
 }

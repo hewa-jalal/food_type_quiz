@@ -22,20 +22,7 @@ class QuestionBank {
   List<Question> _questionList = [
     Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
     Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
-    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
+    Question('Tomato3', 'images/tomato.png', 2, 'Vegetable'),
   ];
 
   String getQuestionTitle() {
@@ -59,6 +46,8 @@ class QuestionBank {
 
   List<Question> getList() => _questionList;
 
+  bool isAtEnd() => _questionNumber == _questionList.length - 1 ? true : false;
+
   void bigCheck(int choice) {
     if (_questionNumber < _questionList.length - 1) {
       if (choice == _questionList[_questionNumber].answer) {
@@ -73,7 +62,7 @@ class QuestionBank {
       }
       _questionNumber++;
     } else {
-      _questionNumber = 0;
+      print('finished the game');
     }
   }
 
@@ -82,6 +71,7 @@ class QuestionBank {
   int getLength() => _questionList.length;
 
   void resetGame() {
+    LivesIcon().clearList();
     _score = 0;
     _questionNumber = 0;
     LivesIcon().addIconBack();

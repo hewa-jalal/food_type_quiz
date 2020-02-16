@@ -83,8 +83,14 @@ class _QuizPageState extends State<QuizPage>
           setState(() {
             questionBank.bigCheck(checkQuestion);
             if (LivesIcon.livesIcon.length == 0) {
-              endGameDialog(context);
               QuestionBank().resetGame();
+              endGameDialog(
+                  'You are out of lives', 'images/sad_tomato.png', context);
+            }
+            if (QuestionBank().isAtEnd()) {
+              QuestionBank().resetGame();
+              endGameDialog('Congratulation you finished the game',
+                  'images/happy_tomato.png', context);
             }
           });
         },
@@ -93,7 +99,7 @@ class _QuizPageState extends State<QuizPage>
   }
 }
 
-Future<bool> endGameDialog(context) {
+Future<bool> endGameDialog(title, imagePath, context) {
   return showDialog(
       context: context,
       barrierDismissible: false,
@@ -106,67 +112,68 @@ Future<bool> endGameDialog(context) {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0)),
             child: Container(
-                height: 350,
-                width: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20.0),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Container(
-                      height: 60,
-                      width: double.infinity,
-                      color: Colors.brown,
-                      child: Center(
-                        child: Text(
-                          'You are out of lives',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 24, color: Colors.white),
+              height: 350,
+              width: 200,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Container(
+                    height: 60,
+                    width: double.infinity,
+                    color: Colors.brown,
+                    child: Center(
+                      child: Text(
+                        title,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 22, color: Colors.white),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  SizedBox(
+                    height: 140,
+                    child: Image.asset(
+                      imagePath,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  // button columns
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        GFButton(
+                          color: Colors.green[900],
+                          child: Text('Play Again'),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          shape: GFButtonShape.pills,
                         ),
-                      ),
+                        GFButton(
+                          color: Colors.green[900],
+                          shape: GFButtonShape.pills,
+                          child: Text('Go Back Home'),
+                          onPressed: () {
+                            Navigator.pushNamed(context, homeRoute);
+                          },
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    SizedBox(
-                      height: 140,
-                      child: Image.asset(
-                        'images/sad_tomato.png',
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    // button columns
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: <Widget>[
-                          GFButton(
-                            color: Colors.green[900],
-                            child: Text('Play Again'),
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            shape: GFButtonShape.pills,
-                          ),
-                          GFButton(
-                            color: Colors.green[900],
-                            shape: GFButtonShape.pills,
-                            child: Text('Go Back Home'),
-                            onPressed: () {
-                              Navigator.pushNamed(context, homeRoute);
-                            },
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                )),
+                  ),
+                ],
+              ),
+            ),
           ),
         );
       });
@@ -205,7 +212,7 @@ class _TopRowState extends State<TopRow> {
             ),
             Row(children: LivesIcon.livesIcon),
           ],
-        )
+        ),
       ],
     );
   }

@@ -38,7 +38,7 @@ dev_dependencies:
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "images/launcher_logo_final.png"
+  image_path: "images/vs_logo.png"
 
 flutter_launcher_name:
   name: "Food Quiz"
