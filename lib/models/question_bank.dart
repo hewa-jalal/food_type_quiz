@@ -20,21 +20,7 @@ class QuestionBank {
   int getHighScore() => _highScore;
 
   List<Question> _questionList = [
-    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
-    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Coconut', 'images/coconut.png', 1, 'Fruit'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
-    Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
+    Question('Coconut', 'images/coconut.png', 3, 'Fruit'),
     Question('Tomato', 'images/tomato.png', 2, 'Vegetable'),
   ];
 
