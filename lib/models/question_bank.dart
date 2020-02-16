@@ -46,10 +46,10 @@ class QuestionBank {
 
   List<Question> getList() => _questionList;
 
-  bool isAtEnd() => _questionNumber == _questionList.length - 1 ? true : false;
+  bool isAtEnd() => _questionNumber == _questionList.length ? true : false;
 
   void bigCheck(int choice) {
-    if (_questionNumber < _questionList.length - 1) {
+    if (_questionNumber < _questionList.length) {
       if (choice == _questionList[_questionNumber].answer) {
         _score++;
         if (_score > _highScore) {
