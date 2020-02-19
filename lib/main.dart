@@ -2,7 +2,6 @@ import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_type_quiz/route_generator.dart';
-import 'package:food_type_quiz/screens/first_page.dart';
 import 'package:oktoast/oktoast.dart';
 
 import 'constants.dart';
@@ -27,7 +26,7 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white24,
         ),
-        home: Scaffold(body: FirstPage()),
+        initialRoute: '/',
         onGenerateRoute: RouteGenerator.generateRoute,
       ),
     );

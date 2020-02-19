@@ -44,7 +44,7 @@ flutter_icons:
   image_path: "images/vs_logo.png"
 
 flutter_launcher_name:
-  name: "Food Quiz"
+  name: "Fruits vs Vegetables"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
