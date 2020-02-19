@@ -1,9 +1,16 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:food_type_quiz/route_generator.dart';
+import 'package:food_type_quiz/screens/first_page.dart';
 import 'package:oktoast/oktoast.dart';
 
-void main() => runApp(MyApp());
+import 'constants.dart';
+
+void main() {
+  Admob.initialize(getAppId());
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
@@ -20,7 +27,7 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white24,
         ),
-        initialRoute: '/',
+        home: Scaffold(body: FirstPage()),
         onGenerateRoute: RouteGenerator.generateRoute,
       ),
     );

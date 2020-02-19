@@ -26,13 +26,13 @@ class _QuizPageState extends State<QuizPage>
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(top: 14, right: 10, left: 10),
+              padding: const EdgeInsets.only(top: 24, right: 10, left: 10),
               child: TopRow(
                 questionBank: questionBank,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 40),
+              padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 40),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -49,20 +49,18 @@ class _QuizPageState extends State<QuizPage>
                     ),
                   ),
                   SizedBox(
+                    height: 60,
+                  ),
+                  SizedBox(
                     height: 76,
                     child: buildPadding('Fruit', 1),
                   ),
                   SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
                     height: 76,
                     child: buildPadding('Vegetable', 2),
-                  ),
-                  SizedBox(
-                    height: 76,
-                    child: buildPadding('Fungus', 3),
-                  ),
-                  SizedBox(
-                    height: 76,
-                    child: buildPadding('Berry', 4),
                   ),
                 ],
               ),
@@ -105,6 +103,7 @@ Future<bool> endGameDialog(title, imagePath, context) {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return WillPopScope(
+          // back button won't exit the dialog
           // ignore: missing_return
           onWillPop: () {},
           child: Dialog(

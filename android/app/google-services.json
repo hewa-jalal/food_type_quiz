@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "257137456893",
+    "firebase_url": "https://fruits-vs-vegetables-f9b2c.firebaseio.com",
+    "project_id": "fruits-vs-vegetables-f9b2c",
+    "storage_bucket": "fruits-vs-vegetables-f9b2c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257137456893:android:5e2951a1a186537ac63094",
+        "android_client_info": {
+          "package_name": "com.example.food_type_quiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257137456893-f9ifmbbg6g0k8qdommkjoufosa6t897f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmTq3p6rbw7aHog4Y8xmJKdGaK4yp27yk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257137456893-f9ifmbbg6g0k8qdommkjoufosa6t897f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

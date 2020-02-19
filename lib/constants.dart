@@ -7,6 +7,13 @@ const TextStyle titleStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+getAppId() => 'ca-app-pub-2856464717670030~8268791854';
+getBannerAdUnitId() => 'ca-app-pub-3940256099942544/6300978111';
+
+
+const TextStyle highScoreStyle =
+    TextStyle(fontSize: 38, color: Colors.white, fontFamily: 'Bitter');
+
 const TextStyle btnTextStyle = TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.bold,

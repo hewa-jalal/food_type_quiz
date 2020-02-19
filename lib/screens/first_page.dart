@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:food_type_quiz/components/ChoiceButton.dart';
 import 'package:food_type_quiz/constants.dart';
@@ -31,10 +32,7 @@ class _FirstPageState extends State<FirstPage> {
                     }
                     return Text(
                       'High Score: ${syncedData.data.toString()}',
-                      style: TextStyle(
-                          fontSize: 38,
-                          color: Colors.white,
-                          fontFamily: 'Bitter'),
+                      style: highScoreStyle,
                     );
                   } else {
                     return Text('');
@@ -45,9 +43,6 @@ class _FirstPageState extends State<FirstPage> {
                 height: 36,
               ),
               buildPadding(),
-              SizedBox(
-                height: 30,
-              ),
               Container(
                 height: 70,
                 width: double.infinity,
@@ -67,6 +62,15 @@ class _FirstPageState extends State<FirstPage> {
                     tap: () {
                       Navigator.of(context).pushNamed(searchRoute);
                     }),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 18),
+                child: Container(
+                  child: AdmobBanner(
+                    adUnitId: getBannerAdUnitId(),
+                    adSize: AdmobBannerSize.BANNER,
+                  ),
+                ),
               ),
             ],
           ),
