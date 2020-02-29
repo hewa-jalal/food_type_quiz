@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white24,
         ),
-        initialRoute: '/',
+        initialRoute: homeRoute,
         onGenerateRoute: RouteGenerator.generateRoute,
       ),
     );

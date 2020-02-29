@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 const TextStyle titleStyle = TextStyle(
-  fontSize: 38,
+  fontSize: 34,
   color: Colors.white,
   fontFamily: 'Qartella',
   fontWeight: FontWeight.bold,
