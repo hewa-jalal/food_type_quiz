@@ -1,4 +1,4 @@
-package com.example.food_type_quiz
+package com.hiwa.food_type_quiz
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

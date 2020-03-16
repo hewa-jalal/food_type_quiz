@@ -56,6 +56,10 @@ class QuestionBank {
     Question('Walnut', 'images/walnut.png', 1, 'Fruit'),
     Question('Watermelon', 'images/watermelon.png', 1, 'Fruit'),
     Question('Zucchini', 'images/zucchini.png', 1, 'Fruit'),
+    Question('Lychee', 'images/lychee.png', 1, 'Fruit'),
+    Question('Rambutan', 'images/rambutan.png', 1, 'Fruit'),
+    Question('Spinach', 'images/spinach.png', 2, 'Vegetable'),
+
   ];
 
   String getQuestionTitle() {

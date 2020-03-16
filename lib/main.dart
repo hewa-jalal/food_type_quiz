@@ -23,6 +23,7 @@ class _MyAppState extends State<MyApp> {
       duration: Duration(milliseconds: 850),
       position: ToastPosition.bottom,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white24,
         ),

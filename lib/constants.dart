@@ -8,7 +8,7 @@ const TextStyle titleStyle = TextStyle(
 );
 
 getAppId() => 'ca-app-pub-2856464717670030~8268791854';
-getBannerAdUnitId() => 'ca-app-pub-3940256099942544/6300978111';
+getBannerAdUnitId() => 'ca-app-pub-2856464717670030/9198730144';
 
 
 const TextStyle highScoreStyle =
